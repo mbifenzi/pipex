@@ -6,15 +6,25 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:43:03 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/20 20:14:17 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/10/21 21:16:48 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipix.h"
 
-char find_path(char *cmd, char **env)
+char *find_path(char *cmd, char **env)
 {
-	
+	int 	i;
+	char	*path;
+	char 	**paths;
+
+	i = 0;
+	while (ft_strnstr(env[i],"PATH", 4) == 0)
+		i++;
+	path = ft_strdup(env[i] + 5);
+	paths = ft_split(path, ':');
+	printf("%s\n", *paths);
+	return(path);
 }
 
 void execute_exe(char **argv, char **env)
@@ -22,13 +32,14 @@ void execute_exe(char **argv, char **env)
 	char	**cmd;
 	char	*file_path;
 
-	cmd = ft_split(argv, ' ');
+	cmd = ft_split(*argv, ' ');
 	file_path = find_path(cmd[0], env);
 	if (execve(file_path, cmd, env) == -1)
-		write(1, "ERROR\n",6);
+		write(1, "Exec Error\n", 11);
 }
 void	parent_process(char **argv, char **env)
 {
+	
 	exit (0);
 }
 
@@ -38,7 +49,7 @@ void	child_process(char **argv, char **env)
 
 	infile = open(argv[1], O_RDONLY | O_CREAT, 0777);
 	if (infile == -1)
-		write(1, "ERROR\n",6);
+		write(1, "Child Error\n",12);
 	execute_exe(argv, env);
 }
 
@@ -47,7 +58,7 @@ int main(int argc, char **argv, char **env)
     int fd[2];
 	int pid;
     
-	if(argc == 5)
+	if(argc != 5)
 		write(1, "ERROR\n", 6);
 	if (pipe(fd) == -1)
 		return (0);

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/15 16:05:47 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/21 19:53:05 by mbifenzi         ###   ########.fr       */
+/*   Created: 2019/10/15 23:56:45 by mbifenzi          #+#    #+#             */
+/*   Updated: 2021/10/21 19:59:51 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipix.h"
 
-size_t		ft_strlen(const char *str)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int i;
+	size_t	i;
+	char	*dest;
+	char	*source;
 
+	dest = (char *)dst;
+	source = (char *)src;
 	i = 0;
-	while (str[i] != '\0')
+	if (dst == src || !ft_memcmp(dst, src, n))
+		return (dst);
+	if (dest == NULL && src == NULL)
+		return (0);
+	while (i < n)
 	{
+		dest[i] = source[i];
 		i++;
 	}
-	return (i);
+	return (dest);
 }
