@@ -1,13 +1,9 @@
-a.out
-ddoc
-ft_memcmp.c
-ft_memcpy.c
-ft_split.c
-ft_strdup.c
-ft_strjoin.c
-ft_strlen.c
-ft_strnstr.c
-ft_substr.c
-outfile
-pipix.c
-pipix.h
+	int 	i;
+void	parent_process(int *fd, char **argv, char **env)
+	int outfile;
+void	child_process(int *fd, char **argv, char **env)
+	int infile;
+	printf("%d\n", infile);
+int main(int argc, char **argv, char **env)
+    int fd[2];
+	int pid;

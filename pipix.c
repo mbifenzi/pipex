@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:43:03 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/23 15:42:04 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:42:39 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	parent_process(int *fd, char **argv, char **env)
 	dup2(outfile, 1);
 	if (outfile == -1)
 		write(1, "Child Error\n",12);
-	close(fd[0]);
+	close(fd[1]);
 	execute_exe(argv[3], env);
 }
 
