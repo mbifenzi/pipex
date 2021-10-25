@@ -1,9 +1,0 @@
-	int 	i;
-void	parent_process(int *fd, char **argv, char **env)
-	int outfile;
-void	child_process(int *fd, char **argv, char **env)
-	int infile;
-	printf("%d\n", infile);
-int main(int argc, char **argv, char **env)
-    int fd[2];
-	int pid;
