@@ -6,25 +6,27 @@
 #    By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:45:06 by mbifenzi          #+#    #+#              #
-#    Updated: 2021/10/25 16:13:57 by mbifenzi         ###   ########.fr        #
+#    Updated: 2021/10/25 18:13:21 by mbifenzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipix
 BONUS_NAME = pipix_bonus
 
-SRC =	pipix.c
+SRC =	pipix.c get_next_line.c
 
 BONUS_SRC = pipix_bonus.c
 
 all :	
 		@cd ./libft ; make all
+		mv	libft/*.o .
+		$(NAME)
 
 bonus : $(BONUS_NAME)
 		@cd ./libft ; make all
 
 $(NAME): $(SRC)
-		@gcc -Wall -Wextra -Werror $(SRC) -o $(NAME)		
+		@gcc -Wall -Wextra -Werror -c $(SRC) -o $(NAME)
 		
 $(BONUS_NAME):
 		@gcc -Wall -Wextra -Werror $(BONUS_SRC) -o $(BONUS_NAME)
