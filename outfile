@@ -1,4 +1,2 @@
-	int pid;
-	pid = fork();
-	if (pid == 0)
-	waitpid(pid, NULL, 0);
+.cccc
+.c
