@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:18:07 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/29 19:36:35 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/10/29 19:38:44 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	child_process(char *argv, char **envp)
 	{
 		close(fd[1]);
 		dup2(fd[0], 0);
-		// waitpid(pid, NULL, 0);
+		waitpid(pid, NULL, 0);
 	}
 }
 
@@ -60,7 +60,7 @@ void	here_doc(char *limiter)
 	{
 		close(fd[1]);
 		dup2(fd[0], 0);
-		wait(NULL);
+		// wait(NULL);
 	}
 }
 
