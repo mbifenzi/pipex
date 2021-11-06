@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:40:15 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/29 16:43:26 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:17:18 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipix.h"
+#include "pipex.h"
 
 void error()
 {

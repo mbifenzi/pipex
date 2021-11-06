@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 17:38:23 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/25 17:52:06 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipix.h"
+#include "../pipex.h"
 
 char	*ft_strchr(const char *s, int c)
 {

@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 00:50:31 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/25 15:45:50 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipix.h"
+#include "../pipex.h"
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {

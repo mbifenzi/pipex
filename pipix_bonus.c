@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:18:07 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/29 19:38:44 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:04:18 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipix.h"
+#include "pipex.h"
 
 void	child_process(char *argv, char **envp)
 {
@@ -85,7 +85,7 @@ int main(int argc, char **argv, char **env)
     int i;
 	int infile;
 	int outfile;
-	
+
 	if (argc < 5)
 	{
 		ft_putstr_fd("args error\n", 1);

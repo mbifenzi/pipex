@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 18:13:42 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/25 16:34:32 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipix.h"
+#include "../pipex.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {

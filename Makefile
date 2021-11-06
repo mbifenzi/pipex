@@ -6,14 +6,14 @@
 #    By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:45:06 by mbifenzi          #+#    #+#              #
-#    Updated: 2021/10/29 16:50:41 by mbifenzi         ###   ########.fr        #
+#    Updated: 2021/11/05 18:16:51 by mbifenzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pipix
-BONUS_NAME = pipix_bonus
+NAME = pipex
+BONUS_NAME = pipex_bonus
 
-SRC =	pipix.c execute_exe.c
+SRC =	pipex.c execute_exe.c
 BONUS_SRC = pipix_bonus.c get_next_line.c execute_exe.c
 
 all :	$(NAME)

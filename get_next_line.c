@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 19:12:12 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/27 12:08:18 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:17:25 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipix.h"
+#include "pipex.h"
 
 int		ft_finish(char **str, char **line)
 {

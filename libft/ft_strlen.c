@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 16:05:47 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/25 15:46:15 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipix.h"
+#include "../pipex.h"
 
 size_t		ft_strlen(const char *str)
 {

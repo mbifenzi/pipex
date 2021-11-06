@@ -6,11 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 18:16:48 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/10/25 16:06:15 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipix.h"
+#include "../pipex.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
