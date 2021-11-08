@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:40:15 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/05 18:17:18 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/08 16:08:59 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ void execute_exe(char *argv, char **env)
 	cmd = ft_split(argv, ' ');
 	file_path = find_path(cmd[0], env);
 	if (execve(file_path, cmd, env) == -1)
-		write(1, "Exec Error\n", 11);
-	
+		error();
 }
