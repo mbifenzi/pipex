@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:42:41 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/09 12:17:12 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/09 17:35:48 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 
+int *g_pid;
+int g_count;
 /* libft*/
 char				**ft_split(char const *s, char c);
 char	            *ft_substr(char const *s, unsigned int start, size_t len);

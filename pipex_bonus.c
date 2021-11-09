@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:18:07 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/09 12:19:00 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:36:19 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ void	child_process(char *argv, char **envp)
 {
 	pid_t	pid;
 	int		fd[2];
+	int i;
 
+	i = 0;
 	if (pipe(fd) == -1)
 		error();
 	pid = fork();
+	g_pid[g_count] = pid;
+	g_count++;
 	if (pid == -1)
 		error();
 	if (pid == 0)
@@ -45,8 +49,9 @@ void	here_doc(char *limiter)
 	if (pipe(fd) == -1)
 		error();
 	pid = fork();
+	
 	if (pid == 0)
-	{	
+	{
 		close(fd[0]);
 		while (get_next_line(0, &line) != 0)
 		{
@@ -86,9 +91,9 @@ int main(int argc, char **argv, char **env)
 	int infile;
 	int outfile;
 
+	g_pid = malloc(sizeof(int) * ft_strlen(*argv) - 2);
 	if (argc < 5)
 		error();
-
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 	{
 		i  = 3;
@@ -99,12 +104,16 @@ int main(int argc, char **argv, char **env)
 	{
 		i = 2;
 		outfile = ft_open(argv[argc - 1], 1);
-		infile = ft_open(argv[1], 0);
+		infile = ft_open(argv[1], 2);
 		dup2(infile, 0);
 	}
 	while (i < argc - 2)
 		child_process(argv[i++], env);
 	dup2(outfile, 1);
-	execute_exe(argv[argc - 2], env);
+	// pid = fork();
+	// if(pid == 0)
+		execute_exe(argv[argc - 2], env);
+	// while (g_pid[i--])
+	// 	waitpid(g_pid[i], NULL, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:45:06 by mbifenzi          #+#    #+#              #
-#    Updated: 2021/11/05 18:16:51 by mbifenzi         ###   ########.fr        #
+#    Updated: 2021/11/09 19:41:30 by mbifenzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = pipex
 BONUS_NAME = pipex_bonus
 
 SRC =	pipex.c execute_exe.c
-BONUS_SRC = pipix_bonus.c get_next_line.c execute_exe.c
+BONUS_SRC = pipex_bonus.c get_next_line.c execute_exe.c
 
 all :	$(NAME)
 
@@ -26,7 +26,7 @@ $(NAME): $(SRC)
 		
 $(BONUS_NAME): $(BONUS_SRC)
 		@cd ./libft ; make all
-		@gcc -Wall -Wextra -Werror $(BONUS_SRC) libft.a -o $(BONUS_NAME)
+		@gcc -Wall -Wextra -Werror $(BONUS_SRC) -o $(BONUS_NAME) libft.a
 
 clean:
 	@rm -f $(OBJECT)
@@ -40,4 +40,4 @@ fclean: clean
 bonus_fclean: clean
 	@rm -f $(BONUS_NAME)
 re: fclean all
-bonus_re : bonus_fclean bonus_all
+bonus_re : bonus_fclean bonus
