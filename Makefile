@@ -6,7 +6,7 @@
 #    By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:45:06 by mbifenzi          #+#    #+#              #
-#    Updated: 2021/11/09 19:41:30 by mbifenzi         ###   ########.fr        #
+#    Updated: 2021/11/10 12:49:46 by mbifenzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,5 +39,6 @@ fclean: clean
 	@cd ./libft ; make fclean
 bonus_fclean: clean
 	@rm -f $(BONUS_NAME)
+	@cd ./libft ; make fclean
 re: fclean all
 bonus_re : bonus_fclean bonus
