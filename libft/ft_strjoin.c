@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 16:12:45 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/11 03:34:11 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (0);
-	if (!(new = (char *)malloc((sizeof(char) *
-						(ft_strlen((char *)s1) + i + 1)))))
+	new = (char *)malloc((sizeof(char) * (ft_strlen((char *)s1) + i + 1)));
+	if (!new)
 		return (0);
 	while (k < ft_strlen((char *)s1) && s1[k])
 	{

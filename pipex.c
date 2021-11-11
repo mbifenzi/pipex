@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:07:45 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/09 17:44:26 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:04:11 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	child_process2(int *fd, char **argv, char **env)
 {
-	int outfile;
+	int	outfile;
 
 	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	dup2(outfile, 1);
@@ -25,7 +25,7 @@ void	child_process2(int *fd, char **argv, char **env)
 
 void	child_process(int *fd, char **argv, char **env)
 {
-	int infile;
+	int	infile;
 
 	infile = open(argv[1], O_RDONLY, 0777);
 	dup2(fd[1], 1);
@@ -37,13 +37,13 @@ void	child_process(int *fd, char **argv, char **env)
 	execute_exe(argv[2], env);
 }
 
-int main(int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **env)
 {
-    int fd[2];
-	int pid;
-	int pid1;
+	int	fd[2];
+	int	pid;
+	int	pid1;
 
-	if(argc != 5)
+	if (argc != 5)
 		error();
 	if (pipe(fd) == -1)
 		return (0);
@@ -57,5 +57,5 @@ int main(int argc, char **argv, char **env)
 	close(fd[0]);
 	waitpid(pid1, NULL, 0);
 	waitpid(pid, NULL, 0);
-	return(0);
+	return (0);
 }

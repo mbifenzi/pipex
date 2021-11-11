@@ -6,16 +6,16 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 00:50:31 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/11 03:27:00 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *d1;
-	unsigned char *d2;
+	unsigned char	*d1;
+	unsigned char	*d2;
 
 	d1 = (unsigned char *)s1;
 	d2 = (unsigned char *)s2;

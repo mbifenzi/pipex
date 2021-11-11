@@ -6,13 +6,13 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:56:40 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/11 04:03:36 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-static size_t		ft_numwords(char const *s, char c)
+static	size_t	ft_numwords(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -37,7 +37,7 @@ static size_t		ft_numwords(char const *s, char c)
 	return (count);
 }
 
-static char			**ft_free(char **str, int num)
+static char	**ft_free(char **str, int num)
 {
 	while (--num)
 		free(&str[num]);
@@ -45,7 +45,20 @@ static char			**ft_free(char **str, int num)
 	return (NULL);
 }
 
-char				**ft_split(char const *s, char c)
+char	**zebalocate(size_t num)
+{
+	char	**str;
+
+	str = (char **)malloc(sizeof(char *) * (num));
+	if (!str)
+	{
+		return (NULL);
+	}
+	else
+		return (str);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	num;
@@ -58,8 +71,7 @@ char				**ft_split(char const *s, char c)
 	len = 0;
 	i = 0;
 	num = ft_numwords(s, c) + 1;
-	if (!(str = (char **)malloc(sizeof(char *) * (num))))
-		return (NULL);
+	str = zebalocate(num);
 	while (i < num - 1)
 	{
 		while (s[len] == c && s[len])
@@ -67,7 +79,8 @@ char				**ft_split(char const *s, char c)
 		start = len;
 		while (s[len] != c && s[len])
 			len++;
-		if (!(str[i++] = ft_substr(s, start, (len - start))))
+		str[i++] = ft_substr(s, start, (len - start));
+		if (!str[i])
 			return (ft_free(str, num));
 	}
 	str[i] = 0;

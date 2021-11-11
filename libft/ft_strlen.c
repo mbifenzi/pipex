@@ -6,15 +6,15 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 16:05:47 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/05 18:19:01 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/11 04:06:39 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
