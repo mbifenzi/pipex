@@ -6,7 +6,7 @@
 #    By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:45:06 by mbifenzi          #+#    #+#              #
-#    Updated: 2021/11/11 01:56:25 by mbifenzi         ###   ########.fr        #
+#    Updated: 2021/11/12 01:36:14 by mbifenzi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ bonus : $(BONUS_NAME)
 		
 $(NAME): $(SRC)
 		@cd ./libft ; make all
-		@gcc -Wall -Wextra -Werror $(SRC) libft.a -o $(NAME) libft.a -fsanitize=address -g
+		@gcc -Wall -Wextra -Werror $(SRC) libft.a -o $(NAME) libft.a #-fsanitize=address -g
 		
 $(BONUS_NAME): $(BONUS_SRC)
 		@cd ./libft ; make all
-		@gcc -Wall -Wextra -Werror $(BONUS_SRC) -o $(BONUS_NAME) libft.a -fsanitize=address -g
+		@gcc -Wall -Wextra -Werror $(BONUS_SRC) -o $(BONUS_NAME) libft.a #-fsanitize=address -g
 
 clean:
 	@rm -f $(OBJECT)

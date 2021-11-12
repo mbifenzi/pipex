@@ -6,12 +6,11 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:18:07 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/11 04:08:38 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/12 04:52:01 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include <stdio.h>
 
 void	child_process(char *argv, char **envp)
 {
@@ -23,7 +22,6 @@ void	child_process(char *argv, char **envp)
 	if (pipe(fd) == -1)
 		error();
 	pid = fork();
-	printf("%d\n", g_count);
 	g_pid[g_count] = pid;
 	g_count++;
 	if (pid == -1)

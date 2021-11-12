@@ -6,83 +6,95 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:56:40 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/11 04:03:36 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/12 04:52:40 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pipex.h"
 
-static	size_t	ft_numwords(char const *s, char c)
+static char	**ft_malloc_error(char **tab)
 {
 	size_t	i;
-	size_t	count;
 
 	i = 0;
-	count = 0;
-	if (s[i] == 0)
-		return (0);
-	while (s[i] != '\0')
+	while (tab[i])
 	{
-		while (s[i] != c && s[i] != '\0')
-		{
-			while (s[i] != c && s[i] != '\0')
-			{
-				i++;
-			}
-			count++;
-		}
-		while (s[i] == c && s[i] != '\0')
-			i++;
+		free(tab[i]);
+		i++;
 	}
-	return (count);
-}
-
-static char	**ft_free(char **str, int num)
-{
-	while (--num)
-		free(&str[num]);
-	free(str);
+	free(tab);
 	return (NULL);
 }
 
-char	**zebalocate(size_t num)
+static size_t	ft_nb_words(char const *s, char c)
 {
-	char	**str;
+	size_t	i;
+	size_t	nb_words;
 
-	str = (char **)malloc(sizeof(char *) * (num));
-	if (!str)
+	if (!s[0])
+		return (0);
+	i = 0;
+	nb_words = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i])
 	{
-		return (NULL);
+		if (s[i] == c)
+		{
+			nb_words++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue ;
+		}
+		i++;
 	}
-	else
-		return (str);
+	if (s[i - 1] != c)
+		nb_words++;
+	return (nb_words);
+}
+
+static void	ft_get_next_word(char **next_word, size_t *next_word_len, char c)
+{
+	size_t	i;
+
+	*next_word += *next_word_len;
+	*next_word_len = 0;
+	i = 0;
+	while (**next_word && **next_word == c)
+		(*next_word)++;
+	while ((*next_word)[i])
+	{
+		if ((*next_word)[i] == c)
+			return ;
+		(*next_word_len)++;
+		i++;
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
+	char	**tab;
+	char	*next_word;
+	size_t	next_word_len;
 	size_t	i;
-	size_t	num;
-	size_t	start;
-	size_t	len;
-	char	**str;
 
-	if (s == 0)
-		return (0);
-	len = 0;
+	if (!s)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * (ft_nb_words(s, c) + 1));
+	if (!tab)
+		return (NULL);
 	i = 0;
-	num = ft_numwords(s, c) + 1;
-	str = zebalocate(num);
-	while (i < num - 1)
+	next_word = (char *)s;
+	next_word_len = 0;
+	while (i < ft_nb_words(s, c))
 	{
-		while (s[len] == c && s[len])
-			len++;
-		start = len;
-		while (s[len] != c && s[len])
-			len++;
-		str[i++] = ft_substr(s, start, (len - start));
-		if (!str[i])
-			return (ft_free(str, num));
+		ft_get_next_word(&next_word, &next_word_len, c);
+		tab[i] = (char *)malloc(sizeof(char) * (next_word_len + 1));
+		if (!tab[i])
+			return (ft_malloc_error(tab));
+		ft_strlcpy(tab[i], next_word, next_word_len + 1);
+		i++;
 	}
-	str[i] = 0;
-	return (str);
+	tab[i] = NULL;
+	return (tab);
 }

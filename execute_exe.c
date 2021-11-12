@@ -6,7 +6,7 @@
 /*   By: mbifenzi <mbifenzi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:40:15 by mbifenzi          #+#    #+#             */
-/*   Updated: 2021/11/11 03:24:29 by mbifenzi         ###   ########.fr       */
+/*   Updated: 2021/11/12 04:52:10 by mbifenzi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ft_close(int infile, int outfile)
 	close(1);
 	close(outfile);
 	close(infile);
-	free(g_pid);
 	return (0);
 }
 
@@ -48,7 +47,6 @@ char	*find_path(char *cmd, char **env)
 		i++;
 	path = ft_strdup(env[i] + 5);
 	paths = ft_split(path, ':');
-	free(path);
 	i = 0;
 	while (paths[i])
 	{
